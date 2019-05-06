@@ -1,13 +1,15 @@
 これは特殊電子回路製のEZ-USB FX3のファームウェアの最新版です。
 
-GPIFではなくSlaveFIFOを利用して毎秒300MB以上の速度でIn/Outできます。このファームウェアからのデータを受け取るFPGAは、特電FX3 IPコアを入れて使います。
+ここで提供されているSlaveFifoNP1064.imgをEZ-USB FX3(CYUSB3014)に書き込むことで使用できるようになります。ファームウェアを書き込むにはサンプルプロジェクトのimgwriteを使うか、Cypressの提供するCyControlCenterを使用します。FPGAには、特電FX3 IPコアを入れて使います。FPGAのサンプルプロジェクトは別途提供します。
 
-このファームウェアを使うと、EZ-USB FX3を使って以下のことができます。
+このファームウェアではSlaveFIFOとDMAを利用し、毎秒300MB以上の速度でFPGAとインタフェースすることができます。
+
+主な機能は以下のとおりです。
 
 + FPGAとの間の高速なデータ転送
 + USB-JTAG
 
-Windowsのアプリケーションは[こちらのプロジェクト](https://github.com/tokuden/tkusbfx3_multi64)にあります。
+このUSBデバイスと通信するWindowsのDLLおよびアプリケーションは[こちらのプロジェクト](https://github.com/tokuden/tkusbfx3_multi64)で提供します。
 
 このレポジトリはバイナリ配布用です。ソースコードをご希望の方は本README.mdを最後までお読みください。
 
