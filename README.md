@@ -7,8 +7,6 @@ GPIFではなくSlaveFIFOを利用して毎秒300MB以上の速度でIn/Outで�
 + FPGAとの間の高速なデータ転送
 + USB-JTAG
 
-ができるようになります。
-
 # ビルド方法
 CypressのEZ-USB FX3用のSDKをダウンロードして、EZ USB Suieを用いてビルドします。
 
