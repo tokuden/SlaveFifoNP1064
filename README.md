@@ -2,19 +2,21 @@
 このファームウェアからのデータを受け取るFPGAは、特電FX3 IPコアを入れて使います。
 
 このファームウェアを使うと、EZ-USB FX3を使って
+
 + EZFPGAとの間の高速なデータ転送
 + USB-JTAG
-が使用できるようになります。
+
+ができるようになります。
 
 # ビルド方法
 CypressのEZ-USB FX3用のSDKをダウンロードして、EZ USB Suieを用いてビルドします。
 
 + (1) EZ USB Suiteを起動します。Elcipseが起動します。
-+ (2) .gitがある一つ上のディレクトリをWorkspaceとして使用します。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm1.pngfirm1.png)
-+ (3) File->Import->General->Existing Projects into Workspaceでプロジェクトを読み込みます。<br> ![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm2.png)
-+ (4) root directoryは.gitのあるディレクトリを指定し、Optionsは両方ともOFFにします。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm3.png)
++ (2) .gitがある一つ上のディレクトリをWorkspaceとして使用します。<br>![](https://github.com/tokuden/SlaveFifoNP1064/blob/master/firm1.png?raw=true)
++ (3) File->Import->General->Existing Projects into Workspaceでプロジェクトを読み込みます。<br> ![](https://github.com/tokuden/SlaveFifoNP1064/blob/master/firm2.png)
++ (4) root directoryは.gitのあるディレクトリを指定し、Optionsは両方ともOFFにします。<br>![](https://github.com/tokuden/SlaveFifoNP1064/blob/master/firm3.png)
 + (5) Finishを押します。
-+ (6) プロジェクトが読み込まれるのでビルドします。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm5.png)
++ (6) プロジェクトが読み込まれるのでビルドします。<br>![](https://github.com/tokuden/SlaveFifoNP1064/blob/master/firm5.png)
 
 プロジェクトのメインのプログラムは cyfxslfifosync.c で、機器の固有の情報を設定するのが cyfxslfifousbdscr.c です。
 
