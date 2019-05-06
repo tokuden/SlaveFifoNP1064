@@ -95,6 +95,7 @@ const uint8_t CyFxUSBSerialNumberDscr[] __attribute__ ((aligned (32))) =
 
 # ソースコードの入手方法
 ソースコードは、[Artix-7ボード](http://www.tokudenkairo.co.jp/art7/)をお買い上げの方に提供しています。
+[お客様サイトからダウンロード](https://www.tokudenkairo.co.jp/login2/getfile.php?target=SlaveFifoNP1064)できます。
 
 # お問い合わせ先
 特殊電子回路 内藤まで info@tokudenkairo.co.jp
