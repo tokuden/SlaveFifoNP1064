@@ -7,6 +7,10 @@ GPIFではなくSlaveFIFOを利用して毎秒300MB以上の速度でIn/Outで�
 + FPGAとの間の高速なデータ転送
 + USB-JTAG
 
+Windowsのアプリケーションは[こちらのプロジェクト](https://github.com/tokuden/tkusbfx3_multi64)にあります。
+
+このレポジトリはバイナリ配布用です。ソースコードをご希望の方は本README.mdを最後までお読みください。
+
 # ビルド方法
 CypressのEZ-USB FX3用のSDKをダウンロードして、EZ USB Suieを用いてビルドします。
 
