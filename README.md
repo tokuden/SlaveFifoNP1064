@@ -1,11 +1,16 @@
 これはEZ-USB FX3のファームウェアの最新版で、GPIFではなくSlaveFIFOを利用して毎秒300MB以上の速度でIn/Outできます。
-特電FX3 IPコアと組み合わせて使います。
+このファームウェアからのデータを受け取るFPGAは、特電FX3 IPコアを入れて使います。
+
+このファームウェアを使うと、EZ-USB FX3を使って
++ EZFPGAとの間の高速なデータ転送
++ USB-JTAG
+が使用できるようになります。
 
 # ビルド方法
 CypressのEZ-USB FX3用のSDKをダウンロードして、EZ USB Suieを用いてビルドします。
 
 + (1) EZ USB Suiteを起動します。Elcipseが起動します。
-+ (2) .gitがある一つ上のディレクトリをWorkspaceとして使用します。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm1.png)
++ (2) .gitがある一つ上のディレクトリをWorkspaceとして使用します。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm1.pngfirm1.png)
 + (3) File->Import->General->Existing Projects into Workspaceでプロジェクトを読み込みます。<br> ![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm2.png)
 + (4) root directoryは.gitのあるディレクトリを指定し、Optionsは両方ともOFFにします。<br>![image](http://git3.tokudenkairo.co.jp/nahitafu/SlaveFifoNP1064/raw/master/firm3.png)
 + (5) Finishを押します。
@@ -22,9 +27,10 @@ CypressのEZ-USB FX3用のSDKをダウンロードして、EZ USB Suieを用い�
 
 # USB IDの変更方法
 cyfxslfifousbdscr.c を編集します。
-下記の2箇所です。
 
-`
+修正箇所は下記の2箇所です。
+
+```
 const uint8_t CyFxUSB30DeviceDscr[] __attribute__ ((aligned (32))) =
 {
     0x12,                           /* Descriptor size */
@@ -37,9 +43,9 @@ const uint8_t CyFxUSB30DeviceDscr[] __attribute__ ((aligned (32))) =
     0x29,0x21,                      /* Vendor ID */
     0x40,0x06,                      /* Product ID */
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`
+```
 
-`
+```
 const uint8_t CyFxUSB20DeviceDscr[] __attribute__ ((aligned (32))) =
 {
     0x12,                           /* Descriptor size */
@@ -52,12 +58,14 @@ const uint8_t CyFxUSB20DeviceDscr[] __attribute__ ((aligned (32))) =
     0x29,0x21,                      /* Vendor ID */
     0x40,0x06,                      /* Product ID */
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`
+```
 
 # シリアル番号の変更方法
 cyfxslfifousbdscr.c を編集します。
+
 下記の箇所です。
-`
+
+```
 /* Standard manufacturer string descriptor */
 const uint8_t CyFxUSBSerialNumberDscr[] __attribute__ ((aligned (32))) =
 {
@@ -71,10 +79,18 @@ const uint8_t CyFxUSBSerialNumberDscr[] __attribute__ ((aligned (32))) =
     '5',0x00,
     '6',0x00
 };
-`
+```
 この例ではシリアル番号はA000456と7文字ですが、Unicodeにするため(?)後ろに0x00を付けます。
+
 ここで、最初の0x10というのはこのディスクリプタが16バイトであることを示しています。
+
 文字が7ワード(14バイト)+最初の長さ(1バイト)+タイプ(1バイト)となります。
+
+# ソースコードの入手方法
+ソースコードは、[Artix-7ボード](http://www.tokudenkairo.co.jp/art7/)をお買い上げの方に提供しています。
+
+# お問い合わせ先
+特殊電子回路 内藤まで info@tokudenkairo.co.jp
 
 # Copyright
 (C)2013-2019 特殊電子回路㈱
